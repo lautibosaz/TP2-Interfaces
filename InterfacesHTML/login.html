@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="formulario.css">
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  
+  <main class="page">
+    <section class="card1">
+      <h1>Bienvenido!</h1>
+      <h2>Ingresá tus datos</h2>
+
+      <form class="form" >
+        <input type="text" placeholder="Ingrese su nombre o email" required>
+        <input type="password" placeholder="Ingrese su contraseña" required>
+
+ 
+        <!-- fila recordar / olvidar -->
+        <div class="remember-row">
+          <label class="chk">
+            <input type="checkbox" id="remember">
+            <span>Recordar contraseña</span>
+          </label>
+          <a class="forgot" href="#">Olvidé mi contraseña</a>
+        </div>
+
+          <label class="captcha-sim">
+                    <input type="checkbox" required>
+                    <img src="images/capta 1.png" class="img-off" alt="No soy un robot">
+                    <img src="images/capta 2.png" class="img-on" alt="Verificado">
+          </label>
+
+        <button type="submit" class="btn"> Iniciar Sesión</a></button>
+       
+            
+              <div class="div-h2crearCuenta">
+                <h2>No tenés cuenta? Registrate</h2>
+                <button type="button" class="btn-crearCuenta"><a href="registro.html">Crear cuenta</a></button>
+              </div>
+        
+      </form>
+    </section>
+  </main>
+
+</body>
+<script src="script.js"></script>
+</html>

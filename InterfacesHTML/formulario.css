@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* ==========================================================================
+   1) BASE / RESET
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+/* Variables de tema (sobre el body) */
+body{
+  --bg:#191a1b;
+  --panel:#cfcfcf;
+  --input:#e9edf2;
+  --input-border:#c5c5c5;
+  --btn:#ff4fa0;
+  --btn-hover:#ff2f90;
+}
+
+
+
+/* Tipografía, fondo y color base */
+body{
+  margin: 0;
+  background: var(--bg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #111;
+}
+
+/* Evitar scroll raro en .page */
+.page, body { overflow: visible; }
+
+
+a {
+  color: white;
+}
+
+/* ==========================================================================
+   2) HEADER
+   ========================================================================== */
+
+
+/* ==========================================================================
+   3) LAYOUT GENERAL
+   ========================================================================== */
+
+.page{
+  min-height: 100%;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  padding: 24px;
+}
+
+/* ==========================================================================
+   4) CARD REGISTRO / LOGIN
+   (comparten casi todas las reglas)
+   ========================================================================== */
+
+/* Registro */
+.card{
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  padding: 12px 16px 20px;
+  background: var(--panel);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-start;
+  box-shadow:
+    0 18px 36px rgba(255,255,255,.4),
+    0 8px 16px rgba(255,255,255,.4),
+    0 -8px 16px rgba(255,255,255,.4),
+    inset 0 0 0 rgb(255,255,255);
+}
+
+/* Login */
+.card1{
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  padding: 12px 16px 20px;
+  background: var(--panel);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-start;
+  box-shadow:
+    0 18px 36px rgba(255,255,255,.4),
+    0 8px 16px rgba(255,255,255,.4),
+    0 -8px 16px rgba(255,255,255,.4),
+    inset 0 0 0 rgb(255,255,255);
+}
+
+/* Brillo superior sutil */
+.card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,.18), rgba(255,255,255,0));
+  opacity: .6;
+}
+
+/* Títulos dentro de la card (registro) */
+
+.card h1{
+  margin: 8px 0 6px;
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 700;
+  color: #0D0E17;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.card h2{
+  margin: 0 0 12px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-align: center;
+  color: #0D0E17;
+}
+
+/* Hacer que el login refleje el estilo del registro */
+.card1 h1{
+  margin: 0 0 18px 0;
+  font-size: 40px;
+  font-weight: 700;
+  color: #0D0E17;
+  text-align: left;
+  align-self: flex-start;
+}
+.card1 h2 {
+
+  line-height: 1.2;
+  font-weight: 600;
+  color: #0D0E17;
+  text-align: left;
+}
+
+.div-h2crearCuenta h2{
+    line-height: 1.2;
+  font-weight: 600;
+  font-size: 16px;
+  color: #0D0E17;
+  text-align: left;
+}
+
+
+
+
+
+/* ==========================================================================
+   5) FORMULARIO / CAMPOS
+   ========================================================================== */
+
+.form{
+  display: flex; flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+  width: 100%;
+  padding: 0;
+  align-items: stretch;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Inputs */
+.form input[type="text"],
+.form input[type="number"],
+.form input[type="password"],
+.form input[type="email"]{
+  width: 100%;
+  height: 45px;
+  border: 1px solid var(--input-border);
+  background: var(--input);
+  border-radius: 5px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  box-shadow: inset 0 1px 2px #8C8C8C, 0 2px 4px rgba(0,0,0,.08);
+}
+
+.form input::placeholder{ color: #7b7b7b; }
+
+/* Recordar / Olvidé */
+.remember-row{
+  display: flex; align-items: center;
+  gap: 100px;
+  margin-top: 6px;
+}
+.remember-row .chk{ display: flex; align-items: center; gap: 8px; }
+.remember-row input[type="checkbox"]{ width: 16px; height: 16px; }
+span{
+  margin-left: auto;
+  color: #0D0E17;
+  transition: color .2s ease;
+}
+.remember-row .forgot{
+  margin-left: auto;
+  text-decoration: underline;
+  color: #0D0E17;
+  transition: color .2s ease;
+}
+.remember-row .forgot:hover{ color: #EC4899; }
+
+/* ==========================================================================
+   6) BOTONES / ESTADOS
+   ========================================================================== */
+
+/* Botón rosa principal */
+form .btn{
+  width: 100%;
+  height: 43px;
+  padding: 0;
+  margin-top: 16px;
+  border: 1px solid #9D174D;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 540;
+  color: #fff;
+  background: #EC4899;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(255,79,160,.40), 0 8px 12px rgba(255,79,160,.35);
+  transition: transform .2s ease, background .3s ease, box-shadow .3s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.btn:hover{
+  transform: translateY(1px) scale(1.03);
+  background: #db2777;
+  box-shadow: 0 2px 2px rgba(255,79,160,.55), 0 12px 20px rgba(255,79,160,.4);
+}
+.btn:active{
+  transform: scale(0.97);
+  box-shadow: 0 2px 4px rgba(255,79,160,.4);
+}
+
+/* Mensaje de error */
+.error-msg{
+  color: #d00000;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 4px 0 0 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.error-msg.is-visible{
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Texto de ayuda para la contraseña */
+.descripcion_contraseña{
+  font-size: 14px;
+  color: #868585;
+  margin-left: 3px;
+  margin-bottom: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Botón gris secundario */
+.btn-crearCuenta{
+  width: 100%;
+  height: 43px;
+  margin-top: 10px;
+  padding: 14px 0;
+  border: 0;
+  border-radius: 8px;
+  background: #6d6d6d;
+  color: #eee;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-crearCuenta:hover{
+  transform: translateY(1px) scale(1.03);
+  background: #6d6d6d;
+  box-shadow: 0 2px 2px #6d6d6d, 0 12px 20px #6d6d6d3d;
+}
+.btn-crearCuenta:active{
+  transform: scale(0.97);
+  box-shadow: 0 2px 4px rgba(255,79,160,.4);
+}
+
+/* ==========================================================================
+   7) REDES SOCIALES / CAPTCHA
+   ========================================================================== */
+
+.social-login{
+  width: 100%;
+  display: flex; flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-social{
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  font-size: 15px; font-weight: 600;
+  border-radius: 6px; border: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.btn-social img{ width: 22px; height: 22px; }
+
+.btn-social.google{
+  background: #fff; color: #444;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+.btn-social.google:hover{ background: #f5f5f5; }
+
+.btn-social.facebook{
+  background: #1877f2; color: #fff;
+  box-shadow: 0 2px 6px rgba(24,119,242,.3);
+}
+.btn-social.facebook:hover{ background: #145dbf; }
+
+/* Captcha “fake” */
+.captcha-sim{
+  width: 209px; height: 57px;
+  display: flex; justify-content: center; align-items: center;
+  margin: 12px auto 0;
+  background: #fff; border: 1px solid #ccc; border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+.captcha-sim input{ display: none; }
+.captcha-sim img{ width: 100%; height: auto; display: block; border-radius: 4px; }
+.captcha-sim .img-on{ display: none; }
+.captcha-sim input:checked ~ .img-off{ display: none; }
+.captcha-sim input:checked ~ .img-on{ display: block; }
+
+/* ==========================================================================
+   8) AJUSTE DE HEADER (compacto)
+   Nota: se deja aquí a propósito para que sobrescriba el tamaño anterior.
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   9) DESKTOP (reproduce el tamaño del diseño)
+   ========================================================================== */
+
+@media (min-width:768px){
+  .card{  width: 580px; height: 800px; padding: 10px 20px 20px; }
+
+  .form{
+    width: 580px;
+    padding: 0 40px;
+    align-items: center;
+  }
+
+  .form input[type="text"],
+  .form input[type="password"],
+  .form input[type="email"]{
+    width: 500px; height: 45px;
+  }
+
+  .form .btn{ width: 500px; height: 43px; margin-top: 24px; }
+  .btn-crearCuenta{ width: 500px; height: 43px;
+   text-decoration: none; }
+  .social-login{ width: 500px; }
+  .captcha-sim{ width: 209px; height: 57px; }
+
+  .card1{ width: 580px; height: 600px; padding: 10px 20px 20px; }
+}
+
