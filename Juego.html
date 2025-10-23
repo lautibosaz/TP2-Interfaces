@@ -15,7 +15,7 @@
 
 
 
-<header class="header">
+ <header class="header">
 
     <!-- Contenedor general -->
     <div class="header-container">
@@ -26,8 +26,8 @@
 
 
       <!-- Logo y título -->
-      <a class="titulo-imagen" href="/">
-        <img src="img/logo.png" alt="Logo El Rincón del Laucha" class="logo">
+      <a class="titulo-imagen" href="index.html">
+        <img src="images/logo.png" alt="Logo El Rincón del Laucha" class="logo">
         <span class="titulo">EL RINCON DEL LAUCHA</span>
       </a>
 
@@ -39,12 +39,32 @@
         </div>
       </div>
 
-      <!-- Inicio de sesión -->
-      <a class="login-btn" href="#">Iniciar sesión</a>
+      <!-- Menu Usuario -->
+      <span id="menu-user-btn" class="menuUser-btn" aria-label="Abrir menú de usuario" aria-controls="menu-user"
+        aria-expanded="false"><i class="fa-solid fa-user"></i></span>
     </div>
 
   </header>
 
+  <!-- Menú usuario: panel deslizante desde la derecha -->
+  <nav id="menu-user" class="user-menu" aria-hidden="true">
+    <div class="user-menu-header">
+      <strong>Cuenta</strong>
+      <button class="close-user-menu" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <div class="user-menu-content">
+      <a class="user-link" href="#">Mis datos</a>
+      <a class="user-link" href="#">Configuración</a>
+      <a class="user-link" href="#">Soporte</a>
+      <button class="user-link logout" id="logoutBtn">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <!-- Backdrop específico para menú usuario -->
+  <div id="menu-user-backdrop" class="menu-backdrop user-backdrop" aria-hidden="true"></div>
+
+
+  <!-- Menú categorias: panel deslizante desde la izquierda -->
   <nav id="menu-categorias" class="side-menu" aria-hidden="true">
     <div class="side-menu-header">
       <strong>Categorías</strong>
@@ -70,7 +90,7 @@
   <div id="menu-backdrop" class="menu-backdrop" aria-hidden="true"></div>
 
 
-<div class="page">
+  <div class="page">
 
   <div class="breadcrumb">
     <h1>Peg Solitarie</h1>

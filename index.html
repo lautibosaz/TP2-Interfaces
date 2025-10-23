@@ -29,7 +29,7 @@
 
 
       <!-- Logo y título -->
-      <a class="titulo-imagen" href="/">
+      <a class="titulo-imagen" href="index.html">
         <img src="images/logo.png" alt="Logo El Rincón del Laucha" class="logo">
         <span class="titulo">EL RINCON DEL LAUCHA</span>
       </a>
@@ -42,12 +42,32 @@
         </div>
       </div>
 
-      <!-- Inicio de sesión -->
-      <a class="login-btn" href="login.html">Iniciar sesión</a>
+      <!-- Menu Usuario -->
+      <span id="menu-user-btn" class="menuUser-btn" aria-label="Abrir menú de usuario" aria-controls="menu-user"
+        aria-expanded="false"><i class="fa-solid fa-user"></i></span>
     </div>
 
   </header>
 
+  <!-- Menú usuario: panel deslizante desde la derecha -->
+  <nav id="menu-user" class="user-menu" aria-hidden="true">
+    <div class="user-menu-header">
+      <strong>Cuenta</strong>
+      <button class="close-user-menu" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <div class="user-menu-content">
+      <a class="user-link" href="#">Mis datos</a>
+      <a class="user-link" href="#">Configuración</a>
+      <a class="user-link" href="#">Soporte</a>
+      <button class="user-link logout" id="logoutBtn">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <!-- Backdrop específico para menú usuario -->
+  <div id="menu-user-backdrop" class="menu-backdrop user-backdrop" aria-hidden="true"></div>
+
+
+  <!-- Menú categorias: panel deslizante desde la izquierda -->
   <nav id="menu-categorias" class="side-menu" aria-hidden="true">
     <div class="side-menu-header">
       <strong>Categorías</strong>
@@ -564,7 +584,7 @@
         <!-- Card: Hitman -->
         <div class="card-frame">
           <div>
-            <img src="images/htiman wordl of assassination.webp" alt="F1® 25" />
+            <img src="images/hitman-world-of-assassination.webp" alt="F1® 25" />
           </div>
           <div class="card-info">
             <span class="card-genero">Acción</span>
@@ -858,6 +878,19 @@
             <h2 class="card-titulo">Peg Solitarie: “Batman Vs Superman”</h2>
           </div>
         </a>
+
+
+         <!-- Card: Peg Solitarie: “Batman Vs Superman -->
+        <a class="card-frame" href="blocka.html" aria-label="Abrir Blocka">
+          <div>
+            <img src="images/BlockaPortada.png" alt="Blocka" />
+          </div>
+          <div class="card-info">
+            <span class="card-genero">Estrategia</span>
+            <h2 class="card-titulo">Blocka</h2>
+          </div>
+        </a>
+
 
         <!-- Card: Fireboy & Watergirl -->
         <div class="card-frame">
