@@ -1,0 +1,472 @@
+/* ====== Estilos Blocka: encaja con el tema del sitio ====== */
+.blocka-wrap {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.SeccionJuego {
+  display: grid;
+
+}
+
+
+.SeccionJuego {
+  gap: 18px;
+
+}
+
+
+
+.pcnt-label { margin-right: 6px; }
+#pieceCount {
+  background:#0f1017; color:#fff; border:1px solid #394150;
+  border-radius:6px; padding:6px 10px; height:36px;
+}
+
+
+.gameBar button {
+  margin-right: 8px;
+
+}
+
+
+.panel h2 {
+  margin: 0 0 8px;
+}
+
+.instrucciones {
+  margin: 0 0 10px 18px;
+}
+
+.instrucciones li {
+  margin: 4px 0;
+}
+
+.nivel-ui,
+.timer-ui {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0;
+  color: white;
+}
+
+.timer-ui .time {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  /* centra horizontalmente */
+  align-items: center;
+  /* centra verticalmente */
+  gap: 10px;
+  /* espacio entre botones */
+  flex-wrap: wrap;
+  /* para que se acomoden si no entra todo */
+
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 6px;
+  border: 1px solid #9D174D;
+  background: #EC4899;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #EC4899;
+  border-color: #9D174D;
+}
+
+.btn.success {
+  background: #EC4899;
+  border-color: #9D174D;
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: #394150;
+  text-decoration: none;
+}
+
+/* ====== Tablero (2x2) ====== */
+.tablero {
+  background: #0f1017;
+
+  border-radius: 6px 6px 0 0;
+
+}
+
+
+
+.grid {
+  display: grid;
+  margin: 0 auto;
+  gap: 10px;
+  aspect-ratio: 1 / 1;
+  background: #0f1017;
+  border-radius: 8px;
+  /* Ancho fijo/responsivo: no cambia por cantidad de piezas */
+  width: clamp(640px, 70vw, 860px);
+}
+
+
+/* 2x2 = grande */
+.grid[data-size="4"] {
+  width: min(620px, 94vw);
+}
+
+/* 3x2 = intermedio */
+.grid[data-size="6"] {
+  width: min(740px, 94vw);
+}
+
+/* 4x2 = más ancho */
+.grid[data-size="8"] {
+  width: min(860px, 94vw);
+}
+  
+
+
+
+.galeria {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.thumbs {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 900px; /* opcional, para limitar ancho */
+}
+
+
+.thumbs img {
+  width: 100%;
+  border-radius: 8px;
+  opacity: .85;
+  outline: 2px solid transparent;
+  transition: transform .12s ease, outline-color .12s ease, opacity .12s ease;
+}
+
+.thumbs img:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Activa (seleccionada) */
+.thumbs img.active {
+  outline-color: #EC4899;
+  opacity: 1;
+}
+
+/* Brillo durante la "ruleta" */
+@keyframes rouletteFlash {
+  0% {
+    outline-color: #EC4899;
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  100% {
+    outline-color: transparent;
+    opacity: .9;
+    transform: scale(1.0);
+  }
+}
+
+.thumbs img.roulette {
+  animation: rouletteFlash .16s linear;
+}
+
+
+
+.tile {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;         /* CLAVE: recorta cualquier bleed al girar */
+  background: transparent;  /* sin fondos que se vean en las esquinas */
+  outline: 1px solid rgba(255,255,255,.08);
+  user-select: none;
+}
+.tile canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tile::after {
+
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-size: 12px;
+  opacity: .75;
+  padding: 2px 6px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, .4);
+}
+
+
+
+.galeria {
+  margin: 24px 0;
+}
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.thumbs img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  opacity: .8;
+}
+
+.thumbs img.active {
+  outline: 2px solid #EC4899;
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .blocka-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Visual para selección de intercambio */
+.tile.is-selected {
+  outline: 2px dashed #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, .25) inset;
+}
+
+
+
+
+
+
+
+.tile[draggable="true"] {
+  cursor: grab;
+}
+
+.tile[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+
+/* cuando queda poco tiempo */
+.timer-ui .time.danger {
+  color: #F59E0B; /* ámbar */
+}
+
+/* cuando se termina el tiempo */
+.timer-ui .time.timeout {
+  color: #EF4444; /* rojo */
+  animation: pulse 0.9s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: none; }
+  50% { transform: scale(1.05); }
+  100% { transform: none; }
+}
+
+/* tablero "perdido" */
+.tablero .grid.lost,
+.grid.lost .tile {
+  filter: grayscale(0.7) brightness(0.7);
+}
+
+ /*carrusel de fotos representativas del juego*/
+
+ /* ====== Carrusel más chico y compacto ====== */
+/* ====== PATCH tamaño compacto y sin recortes ====== */
+
+/* Bloque más estrecho y con separación real del título */
+/* ====== Carrusel estable, sin saltos ====== */
+
+/* Bloque */
+/* ====== Carrusel representativo del juego (fix centrado y botones) ====== */
+/* ==========================
+   Carrusel representativo (FIX botones fuera del área de imágenes)
+   ========================== */
+
+.carrusel-blocka {
+  max-width: 760px;
+  margin: 40px auto;
+  padding: 16px 20px 18px;
+}
+
+.carrusel-blocka h2 {
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.3rem;
+  text-shadow: 0 0 6px rgba(236, 72, 153, 0.4);
+  color: white;
+}
+
+/* Contenedor del carrusel */
+.carrusel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible; /* importante: deja ver botones fuera */
+  margin-top: 8px;
+  padding: 0 40px; /* deja espacio natural a los costados */
+}
+
+/* Track de imágenes */
+.carrusel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 12px;
+  scrollbar-width: none;
+  width: 100%;
+  max-width: 700px; /* área visible del carrusel */
+}
+.carrusel::-webkit-scrollbar { display: none; }
+
+/* Tarjetas del carrusel */
+.carrusel-item {
+  width: 520px;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #1a1b24;
+  box-shadow: 0 0 6px rgba(0,0,0,.4);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.carrusel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Botones de navegación */
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(30, 30, 30, 0.65);
+  border: none;
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .2s ease, transform .1s ease;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Los colocamos fuera del carrusel */
+.carrusel-btn.prev {
+  left: -40px; /* fuera del contenedor */
+}
+.carrusel-btn.next {
+  right: -40px; /* fuera del contenedor */
+}
+
+.carrusel-btn:hover {
+  background: rgba(236,72,153,.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .carrusel-container {
+    padding: 0 24px;
+  }
+  .carrusel-btn.prev { left: -24px; }
+  .carrusel-btn.next { right: -24px; }
+  .carrusel-item { width: 70vw; aspect-ratio: 16 / 11; }
+}
+
+
+/*POP emergente cuando ganas */
+
+
+/* Estado de victoria en el grid */
+#grid.won .tile {
+  pointer-events: none;
+}
+
+/* Pop + glow por ficha */
+@keyframes tile-pop {
+  0%   { transform: scale(1);    filter: brightness(1);   }
+  50%  { transform: scale(1.08); filter: brightness(1.15);}
+  100% { transform: scale(1);    filter: brightness(1);   }
+}
+.tile.win-pop {
+   animation: tile-pop 320ms ease both; /* <- both para que mantenga el estado final durante la anim */
+
+  
+  box-shadow: 0 0 0px rgba(236,72,153,0); /* acento */
+}
+
+/* Destello rápido (sobre el grid) */
+.win-flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.22), rgba(255,255,255,0) 60%);
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+.win-flash.on { opacity: 1; }
+
+/* Banner sutil de “¡Ganaste!” */
+.win-banner {
+  position: absolute;
+  left: 50%; top: 12px;
+  transform: translateX(-50%);
+  background: rgba(13,14,23,.9);
+  color: #fff;
+  border: 1px solid rgba(236,72,153,.4);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+
+
+/* ========================================== USER MENU (mobile-first) ========================================== */
+
+
+
+
+
+
+
+
+/*==========================================  FIN USER MENU ========================================== */
