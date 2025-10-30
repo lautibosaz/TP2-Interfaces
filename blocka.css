@@ -55,6 +55,7 @@
 .timer-ui .time {
   font-size: 22px;
   font-weight: 700;
+  width: 150px;
 }
 
 .acciones {
